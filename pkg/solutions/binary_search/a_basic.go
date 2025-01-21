@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func BinarySearch(list []int, item int) *int {
+func BinarySearch(list []int, item int) int {
 	//data for testing
 	//list := []int{1, 3, 5, 6, 7, 9, 11, 13, 17, 21}
 	//item := 11
@@ -19,7 +19,7 @@ func BinarySearch(list []int, item int) *int {
 		guess := list[mid]
 
 		if guess == item {
-			return &mid
+			return mid
 		}
 
 		if guess < item {
@@ -32,5 +32,5 @@ func BinarySearch(list []int, item int) *int {
 		counter++
 		time.Sleep(time.Second * 2)
 	}
-	return nil
+	return -1
 }
