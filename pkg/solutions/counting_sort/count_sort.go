@@ -1,4 +1,4 @@
-package other_soulutions
+package counting_sort
 
 func CountSort(list []int, maxValue int) {
 	//maxValue = 4

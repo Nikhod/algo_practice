@@ -1,4 +1,4 @@
-package other_soulutions
+package hash_map
 
 import (
 	"unicode"
@@ -9,6 +9,7 @@ func IsAnagram(anagram, target string) bool {
 	//data for testing
 	//anaram := "kufdfadfkyuuukk"
 	//target := "kuku"
+	//output: true
 
 	// Создаем карту для символов второй строки
 	mapTarget := make(map[rune]int)
