@@ -15,7 +15,7 @@ func FindNumb(arr []int, number, index int) int {
 	}
 
 	if arr[index] == number {
-		return index
+		return index // if the number is found, code return his index
 	}
 
 	return FindNumb(arr, number, index+1)

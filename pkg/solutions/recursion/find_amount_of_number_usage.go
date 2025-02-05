@@ -14,7 +14,7 @@ func FindUsage(arr []int, number, index, counter int) int {
 		return counter
 	}
 
-	if number == arr[index] {
+	if number == arr[index] { // if the number is found, code increment counter and go finding next entry
 		counter++
 		return FindUsage(arr, number, index+1, counter)
 	}
