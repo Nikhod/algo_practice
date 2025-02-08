@@ -2,7 +2,7 @@ package other_solutions
 
 import "strings"
 
-func IsPalindrom(text string) bool {
+func IsPalindrome(text string) bool {
 	text = strings.ToLower(text)
 
 	text = RemoveSpace(text)
