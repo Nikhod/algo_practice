@@ -4,7 +4,8 @@ import "fmt"
 
 type Node struct {
 	Name      string
-	Neighbors []Node
+	Neighbors []*Node // внезависимости от последовательности заполнения соседей, все равно you (центральный узел)
+	// все равно будет иметь доступ (Будет заполнен друзьями, и друзьями их друзей)
 }
 
 func CorrectPrintingGraph() {
@@ -17,6 +18,10 @@ func CorrectPrintingGraph() {
 	thom := newParent("thom")
 	jonny := newParent("jonny")
 
+	you.AddNeighbor(bob)
+	you.AddNeighbor(alice)
+	you.AddNeighbor(claire)
+
 	alice.AddNeighbor(peggy)
 	claire.AddNeighbor(thom)
 	claire.AddNeighbor(jonny)
@@ -24,14 +29,8 @@ func CorrectPrintingGraph() {
 	bob.AddNeighbor(nikolas)
 	bob.AddNeighbor(peggy)
 
-	you.AddNeighbor(bob)
-	you.AddNeighbor(alice)
-	you.AddNeighbor(claire)
+	fmt.Println(len(you.Neighbors[0].Neighbors))
 
-	//fmt.Printf("you: %+v\nclaire: %+v\nbob: %+v\n", you, claire, bob)
-	for i, value := range you.Neighbors {
-		fmt.Printf("%v neighbor: %+v\n", i+1, value)
-	}
 }
 
 func newParent(parentName string) *Node {
@@ -39,6 +38,6 @@ func newParent(parentName string) *Node {
 }
 
 func (n *Node) AddNeighbor(neighbor *Node) {
-	n.Neighbors = append(n.Neighbors, *neighbor)
+	n.Neighbors = append(n.Neighbors, neighbor)
 
 }
