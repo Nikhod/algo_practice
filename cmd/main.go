@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import "algo/pkg/data_structure"
 
 func main() {
-	fmt.Println(" go algo ")
+	//data_structure.PrintGraphUsingMechanicWay()
+	//data_structure.PrintGraphUsingMethods()
+	data_structure.CorrectPrintingGraph()
 }
