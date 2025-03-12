@@ -88,7 +88,9 @@ func SecondFindFirstAndLastEntry(nums []int, target int) (int, int) {
 	return entries[0], entries[len(entries)-1]
 }
 
-// nums := []int{5, 7, 7, 8, 8, 10}
+//	correct solution
+//	nums := []int{5, 7, 7, 8, 8, 10}
+//
 // target := 8
 func ThirdFindFirstAndLastEntry(nums []int, target int) (int, int) {
 	// Найти первое вхождение
@@ -97,6 +99,8 @@ func ThirdFindFirstAndLastEntry(nums []int, target int) (int, int) {
 	for left <= right {
 		// ищем первое вхождение: перемещаем правую границу влево, если мы нашли target, в противном случае
 		//перемещаем левую границу вправо
+		//[5, 7, 7, 8, 8, 8, 8, 8, 10, 11, 13, 23, 34,44, 46, 56, 67, 89,99]
+		//	l							m								r
 		mid := (right + left) / 2
 		if target <= nums[mid] {
 			right = mid - 1
@@ -116,6 +120,8 @@ func ThirdFindFirstAndLastEntry(nums []int, target int) (int, int) {
 
 	left, right = 0, len(nums)-1
 	// ищем последнее вхождение: перемещаем левую границу вправо если нашли target
+	//[5, 7, 7, 8, 8, 8, 8, 8, 10, 11, 13, 23, 34,44, 46, 56, 67, 89,99]
+	//	l							m								r
 	for left <= right {
 		mid := (right + left) / 2
 		if nums[mid] <= target {
