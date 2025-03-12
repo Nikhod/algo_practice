@@ -1,5 +1,7 @@
 package recursion
 
+// leetcode task
+// является ли число степенью 4
 func isPowerOfFour(n int) bool {
 	if n == 1 {
 		return true
@@ -10,7 +12,7 @@ func isPowerOfFour(n int) bool {
 	}
 
 	if n%4 == 0 {
-		isPowerOfFour(n / 4)
+		return isPowerOfFour(n / 4)
 	}
 	return false
 }
