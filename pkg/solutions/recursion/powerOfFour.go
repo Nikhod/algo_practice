@@ -1,5 +1,6 @@
 package recursion
 
+// leetcode task
 func isPowerOfFour(n int) bool {
 	if n == 1 {
 		return true
