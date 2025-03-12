@@ -1,31 +1,28 @@
 package recursion
 
-//	this solution has one issue - the indexes during the executing the program is being lost
-func FindNumber(arr []int, item int) int {
-	// if the array is empty, return -1
+// this solution has one issue - the indexes during the executing the program is being lost
+func BinarySearchByRecursion(arr []int, target int, left, right int) int {
 	if len(arr) == 0 {
-		return -1
+		return 0
 	}
 
-	// basic case [is very important]
 	if len(arr) == 1 {
-		return arr[0]
+		if arr[0] == target {
+			return 0
+		} else {
+			return -1
+		}
 	}
 
-	//	putting the edges
-	left := 0
-	right := len(arr) - 1
-	mid := (left + right) / 2
+	mid := (right + left) / 2
 
-	// case where the item is found
-	if arr[mid] == item {
-		return arr[mid]
+	if arr[mid] == target {
+		return mid
 	}
 
-	//	consider the cases when item is situated in left or right sides of the array
-	if arr[mid] < item {
-		return FindNumber(arr[mid+1:], item)
+	if arr[mid] < target {
+		return BinarySearchByRecursion(arr, target, mid+1, right)
 	} else {
-		return FindNumber(arr[:mid], item)
+		return BinarySearchByRecursion(arr, target, left, mid)
 	}
 }
