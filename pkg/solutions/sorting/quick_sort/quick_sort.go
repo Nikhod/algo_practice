@@ -1,16 +1,19 @@
 package quick_sort
 
-func Sort(inputArr []int) []int {
-	if len(inputArr) <= 1 {
-		return inputArr
+import "math/rand"
+
+func sortArray(nums []int) []int {
+	if len(nums) <= 1 {
+		return nums
 	} else {
 		//	sequence:
 		//	less -> pivot -> greater
-		pivot := inputArr[0]
-		less, greater := divideSlice(inputArr, pivot)
+		pivotIndex := rand.Intn(len(nums) - 1)
+		pivot := nums[pivotIndex]
+		less, greater := divideSlice(nums, pivot, pivotIndex)
 
-		less = Sort(less)
-		greater = Sort(greater)
+		less = sortArray(less)
+		greater = sortArray(greater)
 
 		less = append(less, pivot)
 		less = append(less, greater...)
@@ -19,8 +22,11 @@ func Sort(inputArr []int) []int {
 }
 
 // divideSlice: divide the slice to less than pivot and greater than pivot
-func divideSlice(inputArr []int, pivot int) (less, greater []int) {
-	for i := 1; i < len(inputArr); i++ {
+func divideSlice(inputArr []int, pivot, pivotIndex int) (less, greater []int) {
+	for i := 0; i < len(inputArr); i++ {
+		if i == pivotIndex {
+			continue
+		}
 		iterable := inputArr[i]
 		if iterable > pivot {
 			greater = append(greater, iterable)
