@@ -1,0 +1,6 @@
+1) repeat the topics:
+    binary search by recursion (done)
+    quick sort (done)
+    quick sort by new method of replacing of elements in order to minimize the memory expenses (done)
+    merge sort (debug your actions) (done)
+    list (necessary) (DONE)

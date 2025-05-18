@@ -38,3 +38,22 @@ func divideSlice(inputArr []int, pivot, pivotIndex int) (less, greater []int) {
 	}
 	return
 }
+func Swap(nums []int) ([]int, int) {
+	pivotIndex := (len(nums) - 1) / 2
+	pivot := nums[pivotIndex]
+
+	left := nums[:pivotIndex]
+	right := nums[pivotIndex:]
+	left = append(left, right...)
+	nums = left
+
+	var l = -1
+	for g := 0; g < len(nums); g++ {
+		if nums[g] <= pivot {
+			l++
+			nums[l], nums[g] = nums[g], nums[l]
+		}
+	}
+	//l - индекс-граница между большими и меньшими чем опорный
+	return nums, l
+}
